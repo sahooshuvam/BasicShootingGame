@@ -19,7 +19,8 @@ public class BulletLauncher : MonoBehaviour
         {
             GameObject tempBullet;
             tempBullet = Instantiate(bulletPrefab,transform.position,Quaternion.identity);//quaternion.identity means no rotations
-            tempBullet.GetComponent<Rigidbody>().velocity = Vector3.forward * speed;
+            Camera camera = GetComponentInChildren<Camera>();
+            tempBullet.GetComponent<Rigidbody>().velocity =camera.transform.rotation * Vector3.forward * speed;
         }
     }
 }
