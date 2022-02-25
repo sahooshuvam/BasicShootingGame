@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class DestroyEnemy : MonoBehaviour
 {
-    [SerializeField]
-    private static  int score;
+    ScoreManager score;
     private void OnCollisionEnter(Collision collision)
     {
         Destroy(gameObject);
-        score = score + 10;
-        Debug.Log("Score: " +score);
+        score = GameObject.Find("ScoreManager").GetComponent<ScoreManager>();
+        score.ScoreCalculator(10);
+        
     }
 }
